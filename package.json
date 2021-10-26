@@ -7,6 +7,7 @@
     "start": "run-p \"server:start\" \"client:start\"",
     "server:start": "nodenv server/index.js --exec nodemon | pino-colada",
     "client:start": "parcel watch client/src/index.html --out-dir client/dist",
+    "postinstall": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
