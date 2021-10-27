@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const disableVideoBtn = document.getElementById("disable-video");
   const reactionsList = document.getElementById("reactions");
   const whiteboardBtn = document.getElementById("whiteboard");
-  const submitBtn = document.getElementById("submit");
+  const sendBtn = document.querySelector('#sendBtn');
   const reactions = Array.from(reactionsList.querySelectorAll("button")).map(
     (btn) => btn.innerText
   );
@@ -322,14 +322,21 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
 
-  // submitBtn.addEventListener("click", () => {
-  //   console.log("submit clicked")
-  //   html2canvas(document.body).then(function(canvas) {
-  //     document.body.appendChild(canvas);
-  // });
-  
-  
-  // });
+  sendBtn.onclick = function () {
+
+  //   console.log("Test")
+    
+  //   exports.handler = function(context, event, callback) {
+  //   context.getTwilioClient().messages.create({
+  //     to: '+18646507758',
+  //     from: '+17072078510', 
+  //     body: 'Good Morning?'
+  //   }).then(msg => {
+  //     callback(null, msg.sid);
+  //   }).catch(err => callback(err));
+  // }
+
+};
 
 
 });

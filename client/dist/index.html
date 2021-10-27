@@ -48,9 +48,18 @@
             <button id="screen-share">Share screen</button>
             <button id="whiteboard" hidden="">Start whiteboard</button>
             <button id="disconnect">Disconnect</button>
-             <button v-on:click="saveCanvas">Submit</button>  
+             <button v-on:click="saveCanvas">Screenshot</button>  
+             <button id="sendBtn">Send</button>  
 
           </div>
+
+          <div class="tab-content" id="nav-tabContent">
+
+            <div class="tab-pane fade show active" id="single-sms" role="tabpanel" aria-labelledby="nav-single-sms-tab">	  	
+              <form id="form_single" method="post" action="/submit">
+                  <input id="submit_single" type="submit" value="Submit">
+              </form>
+            </div>
           
 
           <div id="reactions" hidden="">
@@ -71,7 +80,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </div></main>
 
     <footer>
       <p>
@@ -89,10 +98,17 @@
     saveCanvas() {
       html2canvas(document.querySelector("#activity")).then(canvas => {
         // document.body.appendChild(canvas)
-        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-        console.log(image);
-        console.log('save image');
-        window.location.href = image;
+        //  var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        //  console.log(image);
+        console.log('save image'); // window.location.href=image;    
+
+        var link = document.createElement("a");
+        link.download = 'canvas.png';
+        link.href = canvas.toDataURL("image/png");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        delete link;
       });
     }
 

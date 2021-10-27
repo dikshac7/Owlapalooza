@@ -38081,7 +38081,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const disableVideoBtn = document.getElementById("disable-video");
   const reactionsList = document.getElementById("reactions");
   const whiteboardBtn = document.getElementById("whiteboard");
-  const submitBtn = document.getElementById("submit");
+  const sendBtn = document.querySelector('#sendBtn');
   const reactions = Array.from(reactionsList.querySelectorAll("button")).map(btn => btn.innerText);
 
   const detachTrack = track => {
@@ -38350,13 +38350,19 @@ window.addEventListener("DOMContentLoaded", () => {
     if (screenShareBtn) {
       (0, _utils.enableButton)(screenShareBtn);
     }
-  }; // submitBtn.addEventListener("click", () => {
-  //   console.log("submit clicked")
-  //   html2canvas(document.body).then(function(canvas) {
-  //     document.body.appendChild(canvas);
-  // });
-  // });
+  };
 
+  sendBtn.onclick = function () {//   console.log("Test")
+    //   exports.handler = function(context, event, callback) {
+    //   context.getTwilioClient().messages.create({
+    //     to: '+18646507758',
+    //     from: '+17072078510', 
+    //     body: 'Good Morning?'
+    //   }).then(msg => {
+    //     callback(null, msg.sid);
+    //   }).catch(err => callback(err));
+    // }
+  };
 });
 /**
 //  * Draw a circle on the <canvas> element.
@@ -38409,7 +38415,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56870" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56565" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
