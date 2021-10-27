@@ -37865,6 +37865,10 @@ const brushes = [{
   name: "large",
   value: 60,
   checked: false
+}, {
+  name: "circle",
+  value: 30,
+  checked: true
 }];
 
 const buildRadioButton = (name, options) => {
@@ -37967,6 +37971,16 @@ class Whiteboard extends EventTarget {
     }
   }
 
+  drawCircle(canvas, color, x, y) {
+    const context = canvas.getContext('2d');
+    context.beginPath();
+    context.arc(x, y, 10, 0, 2 * Math.PI, false);
+    context.fillStyle = color;
+    context.fill();
+    context.strokeStyle = '#000000';
+    context.stroke();
+  }
+
   startDrawing(event) {
     event.preventDefault();
     this.setRatios();
@@ -38067,6 +38081,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const disableVideoBtn = document.getElementById("disable-video");
   const reactionsList = document.getElementById("reactions");
   const whiteboardBtn = document.getElementById("whiteboard");
+  const submitBtn = document.getElementById("submit");
   const reactions = Array.from(reactionsList.querySelectorAll("button")).map(btn => btn.innerText);
 
   const detachTrack = track => {
@@ -38335,8 +38350,37 @@ window.addEventListener("DOMContentLoaded", () => {
     if (screenShareBtn) {
       (0, _utils.enableButton)(screenShareBtn);
     }
-  };
+  }; // submitBtn.addEventListener("click", () => {
+  //   console.log("submit clicked")
+  //   html2canvas(document.body).then(function(canvas) {
+  //     document.body.appendChild(canvas);
+  // });
+  // });
+
 });
+/**
+//  * Draw a circle on the <canvas> element.
+//  * @param {HTMLCanvasElement} canvas
+//  * @param {string} color
+//  * @param {number} x
+//  * @param {number} y
+//  * @returns {void}
+//  */
+//  function drawCircle(canvas, color, x, y) {
+//   const context = canvas.getContext('2d');
+//   context.beginPath();
+//   context.arc(
+//     x,
+//     y,
+//     10,
+//     0,
+//     2 * Math.PI,
+//     false);
+//   context.fillStyle = color;
+//   context.fill();
+//   context.strokeStyle = '#000000';
+//   context.stroke();
+// }
 },{"twilio-video":"../../node_modules/twilio-video/es5/index.js","./lib/video-chat":"lib/video-chat.js","./lib/utils":"lib/utils.js","./lib/localPreview":"lib/localPreview.js","./lib/whiteboard":"lib/whiteboard.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -38365,7 +38409,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50452" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56870" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

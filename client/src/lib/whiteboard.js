@@ -33,6 +33,7 @@ const brushes = [
   { name: "small", value: 10, checked: false },
   { name: "medium", value: 30, checked: true },
   { name: "large", value: 60, checked: false },
+  { name: "circle", value: 30, checked: true },
 ];
 
 const buildRadioButton = (name, options) => {
@@ -130,6 +131,22 @@ export class Whiteboard extends EventTarget {
       });
       this.context.stroke();
     }
+  }
+
+  drawCircle(canvas, color, x, y) {
+    const context = canvas.getContext('2d');
+    context.beginPath();
+    context.arc(
+      x,
+      y,
+      10,
+      0,
+      2 * Math.PI,
+      false);
+    context.fillStyle = color;
+    context.fill();
+    context.strokeStyle = '#000000';
+    context.stroke();
   }
 
   startDrawing(event) {

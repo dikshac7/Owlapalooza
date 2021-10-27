@@ -40,6 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const disableVideoBtn = document.getElementById("disable-video");
   const reactionsList = document.getElementById("reactions");
   const whiteboardBtn = document.getElementById("whiteboard");
+  const submitBtn = document.getElementById("submit");
   const reactions = Array.from(reactionsList.querySelectorAll("button")).map(
     (btn) => btn.innerText
   );
@@ -267,6 +268,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+
   disableVideoBtn.addEventListener("click", () => {
     if (videoTrack.isEnabled) {
       videoTrack.disable();
@@ -318,4 +320,43 @@ window.addEventListener("DOMContentLoaded", () => {
       enableButton(screenShareBtn);
     }
   };
+
+
+  // submitBtn.addEventListener("click", () => {
+  //   console.log("submit clicked")
+  //   html2canvas(document.body).then(function(canvas) {
+  //     document.body.appendChild(canvas);
+  // });
+  
+  
+  // });
+
+
 });
+
+
+
+/**
+//  * Draw a circle on the <canvas> element.
+//  * @param {HTMLCanvasElement} canvas
+//  * @param {string} color
+//  * @param {number} x
+//  * @param {number} y
+//  * @returns {void}
+//  */
+//  function drawCircle(canvas, color, x, y) {
+//   const context = canvas.getContext('2d');
+//   context.beginPath();
+//   context.arc(
+//     x,
+//     y,
+//     10,
+//     0,
+//     2 * Math.PI,
+//     false);
+//   context.fillStyle = color;
+//   context.fill();
+//   context.strokeStyle = '#000000';
+//   context.stroke();
+// }
+

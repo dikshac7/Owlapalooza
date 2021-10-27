@@ -685,5 +685,14 @@ select {
   left: 6px;
 }
 
+.brush-list label[for="circle"]::after {
+  background-color: aqua;
+  width: 14px;
+  height: 14px;
+  border-radius: 10px;
+  top: 6px;
+  left: 6px;
+}
+
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

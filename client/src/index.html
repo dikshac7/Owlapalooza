@@ -40,14 +40,19 @@
         <div id="activity" hidden></div>
         <ul id="participants" class="participants"></ul>
 
+       
         <div class="live-controls">
-          <div>
+          <div id ="app">
             <button id="mute-self">Mute</button>
             <button id="disable-video">Disable video</button>
             <button id="screen-share">Share screen</button>
             <button id="whiteboard" hidden>Start whiteboard</button>
             <button id="disconnect">Disconnect</button>
+             <button v-on:click="saveCanvas">Submit</button>  
+
           </div>
+          
+
           <div id="reactions" hidden>
             <ul>
               <li><button>👍</button></li>
@@ -74,5 +79,31 @@
       </p>
     </footer>
     <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script> 
+    
+    <script>
+
+        var app = new Vue ({
+
+          el: '#app',
+          data: {},
+          methods: {
+            saveCanvas() {
+                html2canvas(document.querySelector("#activity")).then(canvas => {
+               // document.body.appendChild(canvas)
+               var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+               console.log(image);
+               console.log('save image');
+               window.location.href=image;         
+               
+            });
+            }
+          }
+
+       })
+    </script>
+
+   
   </body>
 </html>
